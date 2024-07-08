@@ -8,30 +8,30 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="m-5">
-        <h1 class="text-center">Willkommen zu unserem Quiz "Passt der Studiengang Komedia zu dir?"!</h1>
+<div>
+    <div class="px-5 pt-5 pb-3 text-white" style="background-color: #004c93; border-bottom: 3px solid white">
+        <h1 class="text-center">Willkommen zu unserem Quiz "Passt der B.Sc. Studiengang Komedia zu dir?"!</h1>
         <div class="container">
             <p class="m-5">Du stehst vor der wichtigen Entscheidung, welcher Studiengang der richtige für dich ist, und fragst dich, ob Komedia deinen Interessen und Fähigkeiten entspricht?</br>
                 Dann bist du hier genau richtig!</br>
-                Unser Quiz hilft dir, eine bessere Vorstellung davon zu bekommen, ob dieser spannende und vielseitige Studiengang zu dir passt.</br>
+                Unser Quiz hilft dir, eine bessere Vorstellung davon zu bekommen, ob dieser Studiengang zu dir passt.</br>
                 Viel Spaß und viel Erfolg!</br></br>
                 Bitte beachte, dass dieses Quiz lediglich als Orientierungshilfe dient und es sich nicht um eine Studienberatung handelt.
             </p>
         </div>
     </div>
-    <div class="mx-5">
-        <hr>
-    </div>
+</div>
+<div class="pb-5 pt-4" style="background-image: url('wolken_03.jpg'); background-size: 100% auto; border-bottom: 3px solid #004c93">
     <div class="container">
-        <div class="my-4" id="content"></div>
+        <div class="py-4" id="content"></div>
         <div class="d-flex justify-content-between">
-            <button class="btn btn-secondary" id="prevButton" onclick="prevCategory()">Zurück</button>
-            <button class="btn btn-primary" id="nextButton" onclick="nextCategory()">Weiter</button>
-            <button class="btn btn-success" id="saveButton" onclick="showResults()" style="display:none;">Speichern</button>
+            <button class="btn" id="prevButton" onclick="prevCategory()" style="box-shadow: none !important; color: #004c93; border: 2px solid #004c93; background-color: white;">Zurück</button>
+            <button class="btn" id="nextButton" onclick="nextCategory()" style="box-shadow: none !important; color: #004c93; border: 2px solid #004c93; background-color: white;">Weiter</button>
+            <button class="btn" id="saveButton" onclick="showResults()" style="box-shadow: none !important; color: white; display:none; border: 2px solid #004c93; background-color: #004c93;">Speichern</button>
         </div>
     </div>
-
-    <div class="my-5">
+</div>
+    <div class="mb-5">
         <div class="m-5" id="resultsContainer" style="display:none;">
             <h1 class="mb-4">Auswertung</h1> <hr>
             <div class="row">
@@ -40,59 +40,12 @@
                     <canvas id="myRadarChart"></canvas>
                 </div>
                 <div class="col">
-                    <p>[Verse 1]
-                        Lying awake, did it again for Christ's sake
-                        Shoulda told her to go, and I know it
-                        But she tasted like home
-                        Yeah, she tasted like home
-                        I did what I did, can't say "hey man, I'm just a kid."
-                        Saw the lie in my eyes, couldn't hide it
-                        Cause she tasted like home
-                        Yeah, she tasted like home
+                    <p>Geschafft! Du hast das Quiz erfolgreich beendet. 
                         <br><br>
-                        [Chorus]
-                        Oh
-                        Well, home ain't what I'd call it
-                        When I'm the only ghost walkin' through the hallways
-                        The pain gets so much clearer
-                        When the one to blame is standing in the mirror
-                        This fool, this liar
-                        Lit a match and set his life on fire
-                        I guess I'd rather be alone, in a house that's not a home
-                        <br><br>
-                        [Verse 2]
-                        The pain in my heart's 'cause we're a thousand miles apart
-                        I've got no one to blame for the shame
-                        'Cause she's waiting back home
-                        I hope she's waiting back home
-                        Stupid to think that I could blame it on the drink
-                        Now I'm trying to stall, making calls to someone back home
-                        I hope there's someone back home
-                        <br><br>
-                        [Chorus]
-                        Oh
-                        Well, home ain't what I'd call it
-                        When I'm the only ghost walkin' through the hallways
-                        The pain gets so much clearer
-                        When the one to blame is standing in the mirror
-                        This fool, this liar
-                        Lit a match and set his life on fire
-                        I guess I'd rather be alone, in a house that's not a home
-                        <br><br>
-                        [Bridge]
-                        I walk through the door and there's no light on anymore
-                        Must have known all along I was wrong
-                        Cause there's no one at home
-                        No one's waiting back home
-                        <br><br>
-                        [Chorus]
-                        Well, home ain't what I'd call it
-                        When I'm the only ghost walkin' through the hallways
-                        The pain gets so much clearer
-                        When the one to blame is standing in the mirror
-                        This fool, this liar
-                        Lit a match and set his life on fire
-                        I guess I'd rather be alone, in a house that's not a home
+                        In Orange siehst du hier nun dein individuelles Profil auf Basis deiner gegebenen Antworten.
+                        Der graue Graph stellt einen vorher festgelegten Vergleichswert dar, der dir eine Orientierung geben soll, was im Komedia-Studium gefordert wird.
+                        Aber bitte beachte, dass dies in kein Optimum darstellt, da jeder Studierende individuell ist und es nicht den “typischen” Komedia-Studierenden gibt.
+                        Trotzdem soll es dir helfen die Anforderungen im Studium verglichen mit deinen Interessen und Fähigkeiten etwas besser einordnen zu können.
                     </p>
                 </div>
 

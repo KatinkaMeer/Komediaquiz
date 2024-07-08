@@ -15,7 +15,7 @@ const categories = [
             { text: "Mich interessiert es, wie und warum Menschen Kaufentscheidungen treffen und bin bereit, mich damit auseinanderzusetzen.", weight: 1.25, inverted: false },
             { text: "Ich interessiere mich für die grundlegenden Mechanismen der menschlichen Wahrnehmung und Informationsverarbeitung und bin bereit, mich damit auseinanderzusetzen.", weight: 1.25, inverted: false },
             { text: "Ich interessiere mich für die Prozesse des menschlichen Lernens, Denkens und Problemlösens und bin bereit, mich damit auseinanderzusetzen.", weight: 1.25, inverted: false },
-            { text: "Ich interessiere mich vor allem  für den Teilbereich klinischen Psychologie und Psychotherapie und bin bereit mich damit auseinanderzusetzen.", weight: 1, inverted: true }
+            { text: "Mein Psychologie-Interesse beschränkt sich vor allem auf den Teilbereich der klinischen Psychologie und Psychotherapie.", weight: 1, inverted: true }
         ]
     },
     {
@@ -52,8 +52,8 @@ const categories = [
         questions: [
             { text: "Ich bin interessiert an der Planung, Durchführung und Auswertung empirischer Studien.", weight: 1, inverted: false },
             { text: "Ich bin offen dafür, mir Kenntnisse der Statistik und Forschungsmethoden anzueignen.", weight: 2, inverted: false },
-            { text: "Ich bin bereit, methodisch Daten zu erheben, zu analysieren und die Ergebnisse strukturiert aufzuarbeiten.", weight: 1, inverted: false },
-            { text: "Ich bin bereit, wissenschaftlich zu arbeiten und theoretische Hintergründe zu einem bestimmten Thema zu recharchieren.", weight: 2, inverted: false }
+            { text: "Ich bin bereit dazu, methodisch Daten zu erheben, zu analysieren und die Ergebnisse strukturiert aufzuarbeiten.", weight: 1, inverted: false },
+            { text: "Ich bin bereit dazu, wissenschaftlich zu arbeiten und theoretische Hintergründe zu einem bestimmten Thema zu recharchieren.", weight: 2, inverted: false }
         ]
     },
     {
