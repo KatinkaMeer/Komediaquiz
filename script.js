@@ -5,7 +5,7 @@ function generateLikertScale(name, weight, inverted) {
     const values = inverted ? [4, 3, 2, 1, 0] : [0, 1, 2, 3, 4];
     const approval = inverted ? ["stimme zu", "stimme eher zu", "teil/teils", "stimme eher nicht zu", "stimme nicht zu"] : ["stimme nicht zu", "stimme eher nicht zu", "teils/teils", "stimme eher zu", "stimme zu"];
     for (let value of values) {
-        scaleHtml += '<label><input type="radio" name="' + name + '" value="' + value + '">' + approval[value] + "&nbsp" + '</label>';
+        scaleHtml += '<label style="display: inline-block; text-align:center;"><input type="radio" name="' + name + '" value="' + value + '">' + "</br>" + "&nbsp &nbsp" + approval[value] + "&nbsp &nbsp" + '</label>';
     }
     scaleHtml += '</div>';
     return scaleHtml;
