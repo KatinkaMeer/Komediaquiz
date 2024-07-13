@@ -53,7 +53,7 @@ const categories = [
             { text: "Ich bin interessiert an der Planung, Durchführung und Auswertung empirischer Studien.", weight: 1, inverted: false },
             { text: "Ich bin offen dafür, mir Kenntnisse der Statistik und Forschungsmethoden anzueignen.", weight: 2, inverted: false },
             { text: "Ich bin bereit dazu, methodisch Daten zu erheben, zu analysieren und die Ergebnisse strukturiert aufzuarbeiten.", weight: 1, inverted: false },
-            { text: "Ich bin bereit dazu, wissenschaftlich zu arbeiten und theoretische Hintergründe zu einem bestimmten Thema zu recharchieren.", weight: 2, inverted: false }
+            { text: "Ich bin bereit dazu, wissenschaftlich zu arbeiten und theoretische Hintergründe zu einem bestimmten Thema zu recherchieren.", weight: 2, inverted: false }
         ]
     },
     {
@@ -64,7 +64,7 @@ const categories = [
             { text: "Ich kann mir vorstellen, im Social Media Bereich eines Unternehmens zu arbeiten, Beiträge zu planen und zu erstellen, um dessen Social Media Präsenz nach vorne zu treiben.", weight: 1, inverted: false },
             { text: "Ich kann mir vorstellen, in einem Beruf zu arbeiten, der Technik für Benutzer verständlich und zugänglich macht, sowie bei der Umsetzung von IT-Projekten zu unterstützen (z.B Usability-Engineers und IT-Consultants).", weight: 1, inverted: false },
             { text: "Ich kann mir vorstellen, Projekte zu leiten und zu koordinieren, sowie die interne und externe Kommunikation in einem Unternehmen zu verbessern.", weight: 1, inverted: false },
-            { text: "Ich kann mir vorstellen, für Unternehmen mithilfe sozialer Medien und Online Tools Personal zu bewerben und zu gewinnen (z.B Human Resources).", weight: 1, inverted: false }
+            { text: "Ich kann mir vorstellen, für Unternehmen mithilfe sozialer Medien und Online Tools Personal zu werben und zu gewinnen (z.B Human Resources).", weight: 1, inverted: false }
         ]
     },
 ];
