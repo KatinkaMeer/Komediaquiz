@@ -1,5 +1,19 @@
 let currentCategoryIndex = 0;
 
+let transparencyMode = document.getElementById('switch1').checked;
+function updateTransparencyMode() {
+    transparencyMode = document.getElementById('switch1').checked;
+    console.log("Transparency Mode is now: " + (transparencyMode ? "enabled" : "disabled"));
+    setTimeout(() => {
+        currentCategoryIndex = 0;
+        displayCategory(currentCategoryIndex);
+    }, 200);
+    if (!transparencyMode) {
+        unshowResults();
+    }
+}
+document.getElementById('switch1').addEventListener('change', updateTransparencyMode);
+
 function generateLikertScale(name, weight, inverted) {
     let scaleHtml = '<div class="likert-scale" data-weight="' + weight + '">';
     const values = inverted ? [4, 3, 2, 1, 0] : [0, 1, 2, 3, 4];
@@ -12,15 +26,17 @@ function generateLikertScale(name, weight, inverted) {
 }
 
 function generateCategoryCard(category, index) {
-    let cardHtml = '<div class="card mb-3" style="border: 2px solid #004c93">';
-    cardHtml += '<div class="card-header"><h2>' + category.name + '</h2></div>';
+    let cardHtml = '<div class="card mb-2" style="border: 2px solid #004c93">';
+    cardHtml += '<div class="card-header mt-2"><h2>' + category.name + '</h2></div>';
     cardHtml += '<div class="card-body"><ul class="list-group list-group-flush">';
 
     category.questions.forEach((question, questionIndex) => {
         const name = 'q' + index + '.' + (questionIndex + 1);
         cardHtml += '<li class="list-group-item py-4" data-category="' + category.name + '">';
         cardHtml += '<h5>' + question.text + '</h5>';
-        //cardHtml += '<p>Gewichtung ' + question.weight + '</p>'; //only for debug
+        if (transparencyMode) {
+            cardHtml += '<p>Gewichtung: ' + question.weight + "&nbsp&nbsp&nbsp Invertiert: " + question.inverted + '</p>';
+        }
         cardHtml += generateLikertScale(name, question.weight, question.inverted);
         cardHtml += '</li>';
     });
@@ -35,7 +51,10 @@ function displayCategory(index) {
     document.getElementById('prevButton').style.visibility = index > 0 ? 'visible' : 'hidden';
     document.getElementById('nextButton').style.display = index < categories.length - 1 ? 'inline-block' : 'none';
     document.getElementById('saveButton').style.display = index === categories.length - 1 ? 'inline-block' : 'none';
-    document.getElementById("content").scrollIntoView({ behavior: 'instant'});
+    if (!transparencyMode) {
+        document.getElementById("content").scrollIntoView({ behavior: 'instant'});
+    }
+
 }
 
 function nextCategory() {
@@ -51,6 +70,9 @@ function prevCategory() {
         saveAnswers();
         currentCategoryIndex--;
         displayCategory(currentCategoryIndex);
+        if (!transparencyMode) {
+            unshowResults();
+        }
     }
 }
 
@@ -78,6 +100,10 @@ function showResults() {
     saveAnswers();
     document.getElementById("resultsContainer").style.display = 'block';
     document.getElementById("resultsContainer").scrollIntoView({ behavior: 'smooth'});
+}
+
+function unshowResults() {
+    document.getElementById("resultsContainer").style.display = 'none';
 }
 
 function showIndividualText() {
@@ -108,7 +134,7 @@ function showIndividualText() {
             nahcat.push(categoryname);
         }
 
-        if (devianz < -6) {
+        if (devianz < -4.5) {
             noMatch.push(categoryname);
         }
 
@@ -250,7 +276,9 @@ function showIndividualText() {
 
         resultTextElement.innerHTML += "<br/>"+ additionalText12 + additionalText11 + " liegst du mit deinen Werten nah am Vergleichswert oder darüber.<br/>";
 
-        if (nahcat.length > 4 && !noMatch) {
+        console.log(nahcat.length, noMatch);
+
+        if (nahcat.length > 4 && noMatch.length == 0) {
             resultTextElement.innerHTML += "<br/>Komedia scheint als Studiengang zu deinen Interessen und Fähigkeiten zu passen.<br/>";
         }
     }
@@ -321,5 +349,59 @@ function updateChart() {
     myRadarChart.update();
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    const infoIcon = document.getElementById('infoIcon');
+    const infoContent = document.getElementById('infoContent');
+    let hideTimeout;
 
-showResults(); //only for debug
+    function showInfoContent() {
+        clearTimeout(hideTimeout);
+        infoContent.style.display = 'block';
+    }
+
+    function hideInfoContent() {
+        hideTimeout = setTimeout(() => {
+            infoContent.style.display = 'none';
+        }, 200);
+    }
+
+    infoIcon.addEventListener('mouseover', showInfoContent);
+    infoIcon.addEventListener('mouseout', hideInfoContent);
+    infoContent.addEventListener('mouseover', showInfoContent);
+    infoContent.addEventListener('mouseout', hideInfoContent);
+});
+
+async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'landscape' });
+    const resultsContainer = document.getElementById('resultsContainer');
+
+    try {
+        // Use html2canvas to convert the element to a canvas
+        const canvas = await html2canvas(resultsContainer, { useCORS: true });
+        
+        // Get the image data as a Data URL
+        const imgData = canvas.toDataURL('image/png');
+
+        // Get the dimensions of the canvas
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+
+        // Calculate dimensions to fit the PDF page
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = doc.internal.pageSize.getHeight();
+        const scaleFactor = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+
+        // Calculate the scaled dimensions
+        const scaledWidth = imgWidth * scaleFactor * 0.9;
+        const scaledHeight = imgHeight * scaleFactor * 0.9;
+
+        // Add the image to the PDF
+        doc.addImage(imgData, 'PNG', 10, 10, scaledWidth, scaledHeight);
+
+        // Save the PDF
+        doc.save('KomediaQuizErgebnisse.pdf');
+    } catch (error) {
+        console.error('Error generating canvas: ', error);
+    }
+}

@@ -1,0 +1,15 @@
+.hidden {
+    display: none;
+}
+
+#infoContent {
+    max-width: 80%;
+    display: none;
+    opacity: 1;
+    pointer-events: auto;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 10;
+}

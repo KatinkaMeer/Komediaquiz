@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komedia Quiz</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
+
 <body style="font-family: Arial, Helvetica, sans-serif;">
 <div>
     <div class="px-5 py-4">
@@ -34,11 +38,32 @@
         </div>
     </div>
 </div>
-    <div class="mb-5">
+    <div class="mb-4">
         <div class="m-5" id="resultsContainer" style="display:none;">
-            <h1 class="mb-4">Auswertung</h1> <hr>
+            <h1 class="mb-4">Auswertung</h1>
+            <hr>
             <div class="row">
                 <div class="col">
+                    <div style="font-size: 14px;">
+                        <img src="Minimalist_info_Icon.png" alt="i" width="auto" height="20px" id="infoIcon">
+                        <div id="infoContent" class="hidden">
+                            <h6>Wie kommt das Ergebnis zu stande?</h6>
+                            In jeder Dimension können max. 24 Punkte in Summe erreicht werden.
+                            Dabei können die einzelnen Fragen innerhalb einer Kategorie unterschiedlich stark gewichtet sein.
+                            <br>
+                            Zudem sind manche Items invertiert. Das bedeutet, Zustimmung gibt weniger Punkte als Ablehnung und andersherum.
+                            <br>
+                            Aktiviere den Transparenz-Modus,
+                            um die Gewichtung der einzelnen Items anzuzeigen
+                            und direkt nach jeder Kategorie, live die Veränderungen in der Auswertung beobachten zu können.
+                            <br>
+                            Sichere deine Ergebnisse, bevor du hiermit experimentierst!
+                            <div class="form-check form-switch mt-2">
+                                <input class="form-check-input" type="checkbox" id="switch1" style="box-shadow: none !important;">
+                                <label class="form-check-label" for="switch1">Transparenz-Modus</label>
+                            </div>
+                        </div>
+                    </div>
                     <h3 class="text-center mb-4">Dein Profil</h3>
                     <canvas id="myRadarChart"></canvas>
                 </div>
@@ -53,11 +78,12 @@
                     die Anforderungen des Studiums im Verhältnis zu deinen eigenen Interessen und Fähigkeiten besser zu verstehen.
                     <br>
                     <div id="resultText"></div>
+                    <button class="btn mt-2" id="downloadPdfButton" onclick="downloadPDF()" style="box-shadow: none !important; color: white; border: 2px solid #004c93; background-color: #004c93;">Download</button>
                 </div>
-
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="categories.js"></script>
     <script src="script.js"></script>
 </body>

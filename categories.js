@@ -30,7 +30,7 @@ const categories = [
     {
         name: "Interdisziplinarität",
         questions: [
-            { text: "Es ist mir wichtig, mich in einem spezifischen Teilgebiet zu vertiefen.", weight: 1.33, inverted: true },
+            { text: "Es ist mir wichtig, mich in einem spezifischen Teilgebiet zu vertiefen.", weight: 1.34, inverted: true },
             { text: "Ich möchte gerne einen Überblick über verschiedene Themengebiete bekommen und die Grundlagen unterschiedlicher Bereiche erlernen.", weight: 1.33, inverted: false },
             { text: "Ich bevorzuge es, eine klare Vorstellung von meinem zukünftigen Karriereweg zu haben, anstatt mir verschiedene Möglichkeiten offen zu halten.", weight: 1.33, inverted: true },
             { text: "Ich habe Interesse daran, Wissen aus verschiedenen Disziplinen miteinander zu verknüpfen und Zusammenhänge zu erkennen.", weight: 2, inverted: false }
