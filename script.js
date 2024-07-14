@@ -87,8 +87,12 @@ function showIndividualText() {
     let additionalText5 = "", additionalText55 = "", additionalText6 = "";
     let additionalText7 = "", additionalText8 = "";
     let additionalText9 = "", additionalText10 = "";
+    let additionalText11 = "";
 
     let c = [], d = [], e = [], f = [];
+
+    let nahcat = [];
+    let noMatch = [];
 
     i = 0;
     while (i < categorySums.length) {
@@ -99,6 +103,14 @@ function showIndividualText() {
         let devianz = categorysum - opt;
 
         console.log("Kategorie: ", categoryname, " Summe: ", categorySums, " Abweichung vom Optimum: ", devianz);
+
+        if (devianz > -3) {
+            nahcat.push(categoryname);
+        }
+
+        if (devianz < -6) {
+            noMatch.push(categoryname);
+        }
 
         if (i < 3 && devianz > 3) {
             c.push(categoryname);
@@ -166,11 +178,11 @@ function showIndividualText() {
                 additionalText8 = "diesem Bereich";
             }
             if (e.length == 2) {
-                additionalText7 = "In den beiden Bereichen " + e[0] + " und " + e[1]; 
+                additionalText7 = "In den Bereichen " + e[0] + " und " + e[1]; 
                 additionalText8 = "diesen Bereichen";
             }
             if (e.length == 3) {
-                additionalText7 = "In den drei Bereichen " + e[0] + ", " + e[1] + " und " + e[2];
+                additionalText7 = "In den Bereichen " + e[0] + ", " + e[1] + " und " + e[2];
                 additionalText8 = "diesen Bereichen";
             }
         }
@@ -193,7 +205,7 @@ function showIndividualText() {
         }
 
         if (i == 5 && additionalText7) {
-            resultTextElement.innerHTML += `<br/>` + additionalText7 + ` liegen deine Werte deutlich über dem Vergleichswert.
+            resultTextElement.innerHTML += `<br/>` + additionalText7 + ` liegen deine Werte deutlich überhalb des Vergleichswerts.
                                             Dies zeigt, dass du in ` + additionalText8 + ` ausgezeichnete Voraussetzungen mitbringst!` + "<br/>";
         }
 
@@ -210,13 +222,41 @@ function showIndividualText() {
         }
 
         if (i == 6 && devianz < -3) {
-            resultTextElement.innerHTML += `<br/> Deine Werte im Bereich ` + categoryname + ` liegen deutlich unter dem Vergleichswert.
+            resultTextElement.innerHTML += `<br/> Deine Werte im Bereich ` + categoryname + ` liegen deutlich unterhalb des Vergleichswerts.
                                             Mit einem Komedia-Abschluss gibt es viele verschiedene Berufsmöglichkeiten, von denen wir in diesem Quiz nur einen Bruchteil abgedeckt haben.
                                             Auch wenn du jetzt noch nicht weißt, welchen beruflichen Weg du einschlagen möchtest, hast du im Studium noch genug Zeit, dies herauszufinden.
                                             Mit einem Komedia-Abschluss stehen dir viele Wege offen!` + "<br/>";
         }
 
         i++;
+    }
+
+    if (nahcat.length == 1) {
+        resultTextElement.innerHTML += "<br/>Lediglich in der Dimension " + nahcat[0] + " liegst du mit deinen Werten nah am Vergleichswert oder darüber.<br/>";
+    }
+
+    if (nahcat.length > 1) {
+        let addCat = nahcat[0];
+        let i = 1;
+        while (i < nahcat.length-1) {
+            addCat += ", " + nahcat[i];
+            i++;
+        }
+        additionalText11 = "den Dimensionen " + addCat + " und " + nahcat[nahcat.length - 1];
+
+        if (nahcat.length < 4) {
+            additionalText12 = "Nur in "
+        } else additionalText12 = "In "
+
+        resultTextElement.innerHTML += "<br/>"+ additionalText12 + additionalText11 + " liegst du mit deinen Werten nah am Vergleichswert oder darüber.<br/>";
+
+        if (nahcat.length > 4 && !noMatch) {
+            resultTextElement.innerHTML += "<br/>Komedia scheint als Studiengang zu deinen Interessen und Fähigkeiten zu passen.<br/>";
+        }
+    }
+
+    if (nahcat.length < 4 || noMatch.length > 2){
+        resultTextElement.innerHTML += "<br/>Komedia scheint nicht besonders gut zu deinen Interessen und Fähigkeiten zu passen.<br/>"
     }
 }
 
@@ -226,13 +266,14 @@ const data = {
         label: 'Deine Antworten',
         data: categorySums,
         fill: true,
-        backgroundColor: 'rgba(236, 114, 6, 0.2)',  // Lighter shade with 20% opacity
-        borderColor: 'rgb(236, 114, 6)',  // Primary color
-        pointBackgroundColor: 'rgb(236, 114, 6)',  // Primary color
+        backgroundColor: 'rgba(97, 162, 124, 0.45)',  // Background color with 45% opacity
+        borderColor: '#61a27c',  // Primary color
+        pointBackgroundColor: '#61a27c',  // Primary color
         pointBorderColor: '#fff',  // White border for points
         pointHoverBackgroundColor: '#fff',  // White background when hovering over points
-        pointHoverBorderColor: 'rgb(236, 114, 6)'  // Primary color border when hovering
-    }, {
+        pointHoverBorderColor: '#61a27c'  // Primary color border when hovering
+    },
+    {
         label: 'Vergleichswert',
         data: optimum,
         fill: true,
@@ -281,4 +322,4 @@ function updateChart() {
 };
 
 
-//showResults(); //only for debug
+showResults(); //only for debug
