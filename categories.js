@@ -69,4 +69,4 @@ const categories = [
     },
 ];
 
-const optimum = [18, 15, 10, 18, 18, 18, 12];
+const optimum = [18, 15, 10.5, 18, 18, 18, 12];

@@ -241,7 +241,7 @@ function showIndividualText() {
         if (i == 5 && additionalText9) {
             resultTextElement.innerHTML += `<br/> Deine Ergebnisse ` + additionalText9 + ` weichen deutlich vom Vergleichswert ab. `
                                             + additionalText10 + ` über das gesamte Studium hinweg von Bedeutung und somit ein wesentlicher Bestandteil.
-                                            Wenn du dich mit den abgefragten Konzepten überhaupt nicht identifizieren kannst, könnte Komedia möglicherweise nicht die beste Option für dich sein.` + "<br/>";
+                                            Falls du dich mit den abgefragten Konzepten überhaupt nicht identifizieren kannst, könnte Komedia möglicherweise nicht die beste Option für dich sein.` + "<br/>";
         }
 
         if (i == 6 && devianz > 3) {
