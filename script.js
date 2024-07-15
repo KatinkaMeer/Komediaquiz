@@ -1,5 +1,7 @@
 let currentCategoryIndex = 0;
 
+let initialLoad = true;
+
 let transparencyMode = document.getElementById('switch1').checked;
 function updateTransparencyMode() {
     transparencyMode = document.getElementById('switch1').checked;
@@ -51,7 +53,8 @@ function displayCategory(index) {
     document.getElementById('prevButton').style.visibility = index > 0 ? 'visible' : 'hidden';
     document.getElementById('nextButton').style.display = index < categories.length - 1 ? 'inline-block' : 'none';
     document.getElementById('saveButton').style.display = index === categories.length - 1 ? 'inline-block' : 'none';
-    if (!transparencyMode) {
+    if (!transparencyMode && !initialLoad) {
+        initialLoad = false;
         document.getElementById("content").scrollIntoView({ behavior: 'instant'});
     }
 
