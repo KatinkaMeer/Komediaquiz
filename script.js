@@ -54,13 +54,13 @@ function displayCategory(index) {
     document.getElementById('nextButton').style.display = index < categories.length - 1 ? 'inline-block' : 'none';
     document.getElementById('saveButton').style.display = index === categories.length - 1 ? 'inline-block' : 'none';
     if (!transparencyMode && !initialLoad) {
-        initialLoad = false;
         document.getElementById("content").scrollIntoView({ behavior: 'instant'});
     }
 
 }
 
 function nextCategory() {
+    initialLoad = false;
     if (currentCategoryIndex < categories.length - 1) {
         saveAnswers();
         currentCategoryIndex++;
