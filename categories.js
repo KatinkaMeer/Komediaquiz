@@ -3,9 +3,9 @@ const categories = [
         name: "Informatik",
         questions: [
             { text: "Ich interessiere mich für den Bereich der Mensch-Maschine-Interaktion und der Gestaltung von benutzerfreundlichen Anwendungen und bin bereit, mich damit auseinanderzusetzen.", weight: 2, inverted: false },
-            { text: "Ich habe Interesse die grundlegenden Techniken der Programmierung zu erlernen und bin bereit, mir eine Programmiersprache anzueignen.", weight: 2, inverted: false },
+            { text: "Ich habe Interesse, die grundlegenden Techniken der Programmierung zu erlernen und bin bereit, mir eine Programmiersprache anzueignen.", weight: 2, inverted: false },
             { text: "Ich interessiere mich für die Entwicklung und Gestaltung digitaler Medien und interaktiver Systeme (z.B. Sprachassistenten oder Roboter) und bin bereit, mich damit auseinanderzusetzen.", weight: 1, inverted: false },
-            { text: "Ich habe Interesse an innovativen Technologien (z.B. Künstliche Intelligenz) und deren Anwendung und bin bereit mich damit auseinanderzusetzen.", weight: 1, inverted: false }
+            { text: "Ich habe Interesse an innovativen Technologien (z.B. Künstliche Intelligenz) und deren Anwendung und bin bereit, mich damit auseinanderzusetzen.", weight: 1, inverted: false }
         ]
     },
     {
@@ -23,8 +23,8 @@ const categories = [
         questions: [
             { text: "Ich interessiere mich für grundlegende betriebswirtschaftliche Zusammenhänge und bin bereit, mich damit auseinanderzusetzen.", weight: 1.5, inverted: false },
             { text: "Ich finde es interessant, wie psychologische Kenntnisse für wirtschaftliche Zwecke genutzt werden und bin bereit, mich damit auseinanderzusetzen.", weight: 1.5, inverted: false },
-            { text: "Ich habe Interesse daran, zu lernen, wie Unternehmen organisiert und strukturiert sind und bin bereit mich damit auseinanderzusetzen.", weight: 1.5, inverted: false },
-            { text: "Ich interessiere mich dafür, mit welchen Strategien Unternehmen Gewinne maximieren und bin bereit mich damit auseinanderzusetzen.", weight: 1.5, inverted: false }
+            { text: "Ich habe Interesse daran, zu lernen, wie Unternehmen organisiert und strukturiert sind und bin bereit, mich damit auseinanderzusetzen.", weight: 1.5, inverted: false },
+            { text: "Ich interessiere mich dafür, mit welchen Strategien Unternehmen Gewinne maximieren und bin bereit, mich damit auseinanderzusetzen.", weight: 1.5, inverted: false }
         ]
     },
     {
@@ -42,7 +42,7 @@ const categories = [
             { text: "Es fällt mir leicht, logische Zusammenhänge zu verstehen, und ich habe ein grundlegendes mathematisches Verständnis.", weight: 1, inverted: false },
             { text: "Ich interessiere mich dafür, theoretische Konzepte praktisch anzuwenden.", weight: 1, inverted: false },
             { text: "Ich interessiere mich bei technischen Anwendungen besonders für die Sicht des Nutzers.", weight: 1, inverted: false },
-            { text: "Ich kann selbstständig und stukturiert arbeiten.", weight: 1, inverted: false },
+            { text: "Ich kann selbstständig und strukturiert arbeiten.", weight: 1, inverted: false },
             { text: "Ich bin neugierig und offen für aktuelle Themenbereiche.", weight: 1, inverted: false },
             { text: "Ich bin bereit, interaktiv und gemeinsam im Team an praktischen Fragestellungen zu arbeiten.", weight: 1, inverted: false }
         ]
@@ -59,12 +59,12 @@ const categories = [
     {
         name: "Berufsvorstellung",
         questions: [
-            { text: "Ich kann mir vorstellen, später an der Gestaltung und Entwicklung von benutzerfreundlichen und ansprechenden Webseiten, Online Tools, Apps oder Spielen für verschiedene Plattformen zu arbeiten", weight: 1, inverted: false },
-            { text: "Ich kann mir vorstellen, später Kundendaten zu analysieren und zu interpretieren (Consumer research), um daraus z.B Marketingstrategien zu entwickeln.", weight: 1, inverted: false },
+            { text: "Ich kann mir vorstellen, später an der Gestaltung und Entwicklung von benutzerfreundlichen und ansprechenden Webseiten, Online-Tools, Apps oder Spielen für verschiedene Plattformen zu arbeiten.", weight: 1, inverted: false },
+            { text: "Ich kann mir vorstellen, später Kundendaten zu analysieren und zu interpretieren (Consumer research), um daraus z.B. Marketingstrategien zu entwickeln.", weight: 1, inverted: false },
             { text: "Ich kann mir vorstellen, im Social Media Bereich eines Unternehmens zu arbeiten, Beiträge zu planen und zu erstellen, um dessen Social Media Präsenz nach vorne zu treiben.", weight: 1, inverted: false },
-            { text: "Ich kann mir vorstellen, in einem Beruf zu arbeiten, der Technik für Benutzer verständlich und zugänglich macht, sowie bei der Umsetzung von IT-Projekten zu unterstützen (z.B Usability-Engineers und IT-Consultants).", weight: 1, inverted: false },
+            { text: "Ich kann mir vorstellen, in einem Beruf zu arbeiten, der Technik für Benutzer verständlich und zugänglich macht sowie bei der Umsetzung von IT-Projekten zu unterstützen (z.B. Usability-Engineers und IT-Consultants).", weight: 1, inverted: false },
             { text: "Ich kann mir vorstellen, Projekte zu leiten und zu koordinieren, sowie die interne und externe Kommunikation in einem Unternehmen zu verbessern.", weight: 1, inverted: false },
-            { text: "Ich kann mir vorstellen, für Unternehmen mithilfe sozialer Medien und Online Tools Personal zu werben und zu gewinnen (z.B Human Resources).", weight: 1, inverted: false }
+            { text: "Ich kann mir vorstellen, für Unternehmen mithilfe sozialer Medien und Online Tools Personal zu werben und zu gewinnen (z.B. Human Resources).", weight: 1, inverted: false }
         ]
     },
 ];
